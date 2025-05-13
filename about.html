@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Launcher</title>
+   <link rel="icon" href="assets/logo.png" type="image/webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+    }
+
+    /* Background video styling */
+    #video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    @media (max-width: 480px) {
+      #video-bg {
+        display: none;
+      }
+      body {
+        background: #111;
+      }
+    }
+
+    .topnav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 0 16px;
+    }
+
+    .nav-left, .nav-right {
+      display: flex;
+      gap: 10px;
+    }
+
+    .topnav a {
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .topnav a:hover {
+      background-color: #ffffff00;
+      color: orange;
+    }
+
+    .topnav a.active {
+      background-color: orange;
+      color: white;
+    }
+
+    .logo {
+      height: 40px;
+    }
+
+    .content {
+      margin: 20px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    @media (max-width: 768px) {
+      .topnav a {
+        font-size: 14px;
+        padding: 10px 12px;
+      }
+      .logo {
+        height: 30px;
+      }
+      .content {
+        margin: 12px;
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Background Video -->
+<video autoplay muted loop playsinline id="video-bg">
+  <source src="assets/background.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<!-- Navigation Bar -->
+<div class="topnav">
+  <div class="nav-left">
+    <a class="active" href="index.html">Home</a>
+    <a href="changelog.html">Changelog</a>
+  </div>
+
+  <div>
+    <a href="index.html">
+      <img src="assets/logo.webp" alt="Logo" class="logo">
+    </a>
+  </div>
+
+  <div class="nav-right">
+    <a href="archive.html">Archive</a>
+    <a href="about.html">About</a>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="content">
+  <h2>About</h2>
+  <p>Europa Mobile is receiving updates since 14.04.2025</p>
+  <p>Currurent version: v1.3L</p>
+  <p>Developer: notkarolek [known as Ryan_GosIlng]</p>
+  <p>Contributors: Elliot_Alderson, Mr_Safin</p>
+</div>
+
+</body>
+</html>

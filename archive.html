@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Europa Archive</title>
+     <link rel="icon" href="assets/logo.png" type="image/webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+    }
+
+    /* Background video styling */
+    #video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    @media (max-width: 480px) {
+      #video-bg {
+        display: none;
+      }
+      body {
+        background: #111;
+      }
+    }
+
+    .topnav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 0 16px;
+    }
+
+    .nav-left, .nav-right {
+      display: flex;
+      gap: 10px;
+    }
+
+     .topnav a {
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .topnav a:hover {
+      background-color: #00000000;
+      color: orange;
+    }
+
+    .topnav a.active {
+      background-color: orange;
+      color: white;
+    }
+
+    .logo {
+      height: 40px;
+    }
+
+    .content {
+      margin: 20px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    @media (max-width: 768px) {
+      .topnav a {
+        font-size: 14px;
+        padding: 10px 12px;
+      }
+      .logo {
+        height: 30px;
+      }
+      .content {
+        margin: 12px;
+        padding: 16px;
+      }
+    }
+    .download-button {
+  display: inline-block;
+  background-color: #ff9a02;
+  color: white;
+  padding: 12px 24px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 16px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.download-button:hover {
+  background-color: #e68900;
+  transform: scale(1.05);
+}
+
+.button-group {
+  margin-top: 32px;
+  text-align: left;
+  padding-left: 16px;
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Background Video -->
+<video autoplay muted loop playsinline id="video-bg">
+  <source src="assets/background.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<!-- Navigation Bar -->
+<div class="topnav">
+  <div class="nav-left">
+    <a class="active" href="index.html">Home</a>
+    <a href="changelog.html">Changelog</a>
+  </div>
+
+  <div>
+    <a href="index.html">
+      <img src="assets/logo.webp" alt="Logo" class="logo">
+    </a>
+  </div>
+
+  <div class="nav-right">
+    <a href="archive.html">Archive</a>
+    <a href="about.html">About</a>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="content">
+  <h2>Old Versions:</h2>
+  <div class="button-group">
+  <a href="https://drive.google.com/file/d/1Cv2XtTLu7Dbgtkd4pr2lWJtRFzecHhvr/view?usp=drivesdk" class="download-button">Europa Mobile 1.0</a>
+  <br>
+  <a href="https://drive.google.com/file/d/1NE7h3RiUqHnqmBgh3O0UnAGCEnkzQIRy/view?usp=drivesdk" class="download-button">Europa Mobile 1.1 (CLEO)</a>
+<br>
+<a href="rel_v1.1NC.apk" class="download-button">Europa Mobile 1.1 (non CLEO)</a>
+<br>
+ <a href="rel_v1.2.apk" class="download-button">Europa Mobile 1.2 (CLEO)</a>
+ <br>
+ <a href="rel_v1.2NC.apk" class="download-button">Europa Mobile 1.2 (non CLEO)</a>
+</div>
+
+</div>
+
+</body>
+</html>
