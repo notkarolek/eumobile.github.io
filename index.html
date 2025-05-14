@@ -5,7 +5,23 @@
   <title>Europa Mobile</title>
   <link rel="icon" href="assets/logo.webp" type="image/webp">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const isMobileMode = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    document.documentElement.classList.add(isMobileMode ? 'mobile-mode' : 'desktop-mode');
+  });
+</script>
   <style>
+
+
+.mobile-mode .content-flex {
+  flex-direction: column;
+}
+
+.desktop-mode .content-flex {
+  flex-direction: row;
+}
+
     html, body {
       margin: 0;
       padding: 0;
@@ -143,6 +159,24 @@
       text-align: left;
       padding-left: 0px;
     }
+.mobile-mode .content-flex {
+  flex-direction: column;
+  align-items: center; /* Center children horizontally */
+}
+
+.mobile-mode .image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+
+.desktop-mode .image-section {
+  justify-content: flex-end;
+}
+
   </style>
 </head>
 <body>
@@ -156,13 +190,13 @@
 <!-- Navigation Bar -->
 <div class="topnav">
   <div class="nav-left">
-    <a class="active" href="mobile.html">Home</a>
+    <a class="active" href="index.html">Home</a>
     <a href="changelog.html">Changes</a>
   </div>
 
   <div>
-    <a href="mobile.html">
-      <img src="assets/logo.webp" alt="Logo" class="logo">
+    <a href="index.html">
+      <img src="assets/logo.webp"  class="logo">
     </a>
   </div>
 
@@ -187,6 +221,7 @@
       <b>- Android 5.0 or higher</b><br><br>
       <b>- 3.8GB+ free storage</b><br><br>
       <b>- Minimum 2GB RAM</b>
+      <br>
       <br>
       <h3>Suggested Specifiactions:</h3>
       <br>
