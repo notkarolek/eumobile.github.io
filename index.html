@@ -138,18 +138,26 @@
       min-width: 300px;
     }
 
-    .image-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .image-section img {
-      max-width: fit-content;
-      height: fit-content;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0);
-    }
+.image-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide the image-section on mobile */
+@media (max-width: 480px) {
+  .image-section {
+    display: none;
+  }
+}
+
 
     @media (max-width: 768px) {
       .topnav a {
