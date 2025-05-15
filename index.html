@@ -201,6 +201,23 @@
   color: orange;
 }
 
+.menu-icon {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.menu-img {
+  height: 32px;
+  width: 32px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.menu-img:hover {
+  opacity: 1;
+}
 
   </style>
 </head>
@@ -212,7 +229,6 @@
   Your browser does not support the video tag.
 </video>
 
-<!-- Navigation Bar -->
 <div class="topnav">
   <div class="nav-left">
     <a href="index.html">
@@ -221,10 +237,9 @@
   </div>
 
   <div class="nav-right">
-  <button class="menu-icon" onclick="toggleMenu()">
-  <img src="assets/menu-icon.png" alt="Menu" class="menu-img"></button>
-
-
+    <button class="menu-icon" onclick="toggleMenu()">
+      <img src="assets/menu-icon.png" alt="Menu" class="menu-img">
+    </button>
 
     <div id="dropdown-menu" class="dropdown-menu">
       <a href="changelog.html">Changes</a>
@@ -233,6 +248,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- Page Content -->
 <div class="content-flex">
