@@ -102,22 +102,24 @@
   Your browser does not support the video tag.
 </video>
 
-<!-- Navigation Bar -->
 <div class="topnav">
   <div class="nav-left">
-    <a class="active" href="index.html">Home</a>
-    <a href="changelog.html">Changes</a>
-  </div>
-
-  <div>
     <a href="index.html">
-      <img src="assets/logo.webp" class="logo">
+      <img src="assets/logo.webp" class="logo" alt="Europa Logo">
     </a>
   </div>
 
   <div class="nav-right">
-    <a href="archive.html">Archive</a>
-    <a href="about.html">About</a>
+  <button class="menu-icon" onclick="toggleMenu()">
+  <img src="assets/menu-icon.png" alt="Menu" class="menu-img"></button>
+
+
+
+    <div id="dropdown-menu" class="dropdown-menu">
+      <a href="changelog.html">Changes</a>
+      <a href="archive.html">Archive</a>
+      <a href="about.html">About</a>
+    </div>
   </div>
 </div>
 
