@@ -240,46 +240,6 @@
 
 <div class="button-group">
   <div class="content">
-    <h2>Report an issue</h2>
-    <form id="issueForm" style="margin-top: 20px;">
-      <label for="name">Your IN-Game Name</label><br />
-      <input type="text" id="name" name="name" placeholder="Name_Surname" required /><br /><br />
-
-      <label for="email">Your Email</label><br />
-      <input type="email" id="email" name="email" placeholder="example@gmail.com" required /><br /><br />
-
-      <label for="issue">Describe your issue</label><br />
-      <textarea id="issue" name="issue" placeholder="Describe your issue" rows="5" required></textarea><br /><br />
-
-      <button type="submit" class="download-button" style="padding: 12px 40px;">Submit Issue</button>
-    </form>
-  </div>
-
-  <script>
-    document.getElementById('issueForm').addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      const formData = new FormData(this);
-      const data = Object.fromEntries(formData.entries());
-
-      try {
-        const response = await fetch('/submit-issue', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-
-        if (response.ok) {
-          alert('Issue submitted successfully!');
-          this.reset();
-        } else {
-          alert('Failed to submit issue');
-        }
-      } catch (err) {
-        alert('Error submitting issue');
-      }
-    });
-  </script>
 </div>
 
 </body>
