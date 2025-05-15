@@ -28,21 +28,55 @@
   function getGpuInfo() {
     const canvas = document.createElement('canvas');
     const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-
-    if (!gl) return "WebGL not supported";
+    if (!gl) return null;
 
     const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
     if (debugInfo) {
       const vendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
       const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-      return `GPU Vendor: ${vendor}<br>GPU Renderer: ${renderer}`;
+      return { vendor, renderer };
     }
-    return "GPU info not available";
+    return null;
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    const info = getGpuInfo();
-    document.getElementById('gpu-info').innerHTML = info;
+    const result = getGpuInfo();
+    const infoDiv = document.getElementById('gpu-info');
+    const tipDiv = document.getElementById('gpu-tip');
+    const downloadDiv = document.getElementById('gpu-download');
+
+    if (!result) {
+      infoDiv.innerHTML = "GPU info not available.";
+      tipDiv.innerHTML = "";
+      return;
+    }
+
+    const { vendor, renderer } = result;
+    infoDiv.innerHTML = `GPU Vendor: ${vendor}<br>GPU Renderer: ${renderer}`;
+
+    let tip = "";
+    let format = "";
+    if (/adreno/i.test(renderer)) {
+      tip = "Use the <strong>Adreno</strong> update format.";
+      format = "adreno";
+    } else if (/mali/i.test(renderer)) {
+      tip = "Use the <strong>Mali</strong> update format.";
+      format = "mali";
+    } else if (/powervr/i.test(renderer)) {
+      tip = "Use the <strong>PowerVR</strong> update format.";
+      format = "powervr";
+    } else {
+      tip = "Could not determine GPU format. Please check manually.";
+    }
+
+    tipDiv.innerHTML = `<p><strong>Recommended:</strong> ${tip}</p>`;
+
+    if (format) {
+      downloadDiv.innerHTML = `
+        <a href="updates/${format}.zip" class="download-button">
+          Download ${format.charAt(0).toUpperCase() + format.slice(1)} Update
+        </a>`;
+    }
   });
 </script>
   <style>
@@ -227,6 +261,9 @@
 <br>
 <p>You dont know what's your device's format? Check it here:</p>
 <div id="gpu-info">Detecting GPU...</div>
+<div id="gpu-tip"></div>
+<div id="gpu-download"></div>
+<b>If it says "WebGL Not supported" check it on this site:</b>
 </div>
 
 </div>
