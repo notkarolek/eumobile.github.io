@@ -5,25 +5,27 @@
   <title>Europa Mobile</title>
   <link rel="icon" href="assets/logo.webp" type="image/webp">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const isMobileMode = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
-      document.documentElement.classList.add(isMobileMode ? 'mobile-mode' : 'desktop-mode');
-    });
+      <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const isMobileMode = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    document.documentElement.classList.add(isMobileMode ? 'mobile-mode' : 'desktop-mode');
+  });
+</script>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("dropdown-menu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  }
 
-    function toggleMenu() {
-      const menu = document.getElementById("dropdown-menu");
-      menu.style.display = menu.style.display === "block" ? "none" : "block";
+  // Optional: close menu when clicking outside
+  document.addEventListener("click", function (event) {
+    const menu = document.getElementById("dropdown-menu");
+    const button = document.querySelector(".menu-icon");
+    if (!menu.contains(event.target) && !button.contains(event.target)) {
+      menu.style.display = "none";
     }
-
-    document.addEventListener("click", function (event) {
-      const menu = document.getElementById("dropdown-menu");
-      const button = document.querySelector(".menu-icon");
-      if (!menu.contains(event.target) && !button.contains(event.target)) {
-        menu.style.display = "none";
-      }
-    });
-  </script>
+  });
+</script>
 
   <style>
 
@@ -199,23 +201,6 @@
   color: orange;
 }
 
-.menu-icon {
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.menu-img {
-  height: 32px;
-  width: 32px;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
-}
-
-.menu-img:hover {
-  opacity: 1;
-}
 
   </style>
 </head>
@@ -227,6 +212,7 @@
   Your browser does not support the video tag.
 </video>
 
+<!-- Navigation Bar -->
 <div class="topnav">
   <div class="nav-left">
     <a href="index.html">
@@ -235,9 +221,10 @@
   </div>
 
   <div class="nav-right">
-    <button class="menu-icon" onclick="toggleMenu()">
-      <img src="assets/menu-icon.png" alt="Menu" class="menu-img">
-    </button>
+  <button class="menu-icon" onclick="toggleMenu()">
+  <img src="assets/menu-icon.png" alt="Menu" class="menu-img"></button>
+
+
 
     <div id="dropdown-menu" class="dropdown-menu">
       <a href="changelog.html">Changes</a>
@@ -246,7 +233,6 @@
     </div>
   </div>
 </div>
-
 
 <!-- Page Content -->
 <div class="content-flex">
