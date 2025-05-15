@@ -5,6 +5,25 @@
   <title>Europa Updates</title>
      <link rel="icon" href="assets/logo.png" type="image/webp">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const isMobileMode = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+      document.documentElement.classList.add(isMobileMode ? 'mobile-mode' : 'desktop-mode');
+    });
+
+    function toggleMenu() {
+      const menu = document.getElementById("dropdown-menu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    document.addEventListener("click", function (event) {
+      const menu = document.getElementById("dropdown-menu");
+      const button = document.querySelector(".menu-icon");
+      if (!menu.contains(event.target) && !button.contains(event.target)) {
+        menu.style.display = "none";
+      }
+    });
+  </script>
   <style>
     html, body {
       margin: 0;
