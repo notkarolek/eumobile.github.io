@@ -264,11 +264,12 @@ form textarea {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('/submit-issue', {  // You need a backend endpoint here!
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
+     const response = await fetch('/.netlify/functions/report', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(data)
+});
+
       if (response.ok) {
         alert('Issue submitted successfully!');
         this.reset();
