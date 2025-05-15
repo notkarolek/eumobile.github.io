@@ -30,8 +30,8 @@ exports.handler = async function(event, context) {
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'n0xsampmobile@gmail.com', // your gmail address
-      pass: 'fvpeecakzikgpcf',          // your app password
+      user: 'n0xsampmobile@gmail.com',
+      pass: 'fvpeecakzikgpcf',
     },
   });
 
@@ -56,8 +56,6 @@ exports.handler = async function(event, context) {
     };
   }
 };
-Step 3: Frontend form snippet (you already have this)
-Make sure your fetch call matches this:
 
 js
 Kopiuj

@@ -2,3 +2,12 @@
   for = "/.well-known/*"
   [headers.values]
     Content-Type = "text/plain"
+[build]
+  publish = "public"       # or your build output folder (e.g., 'dist' or root if no build)
+  functions = "netlify-functions"  # folder where your Netlify Functions live
+
+[[redirects]]
+  from = "/submit-issue"
+  to = "/.netlify/functions/submit-issue"
+  status = 200
+  methods = ["POST"]
