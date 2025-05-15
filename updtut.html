@@ -24,7 +24,27 @@
       }
     });
   </script>
+<script>
+  function getGpuInfo() {
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
 
+    if (!gl) return "WebGL not supported";
+
+    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+    if (debugInfo) {
+      const vendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
+      const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+      return `GPU Vendor: ${vendor}<br>GPU Renderer: ${renderer}`;
+    }
+    return "GPU info not available";
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const info = getGpuInfo();
+    document.getElementById('gpu-info').innerHTML = info;
+  });
+</script>
   <style>
     html, body {
       margin: 0;
@@ -202,7 +222,11 @@
 <div class="content">
   <h2>Update Tutorial</h2>
 <div class="button-group">
-
+<p>To apply a update, first of all you have to download a right version for your device</p>
+<a href="updates.html" class="download-button">Download Update's</a>
+<br>
+<p>You dont know what's your device's format? Check it here:</p>
+<div id="gpu-info">Detecting GPU...</div>
 </div>
 
 </div>
