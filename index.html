@@ -46,26 +46,42 @@
       color: white;
     }
 
-    /* Background video styling */
-    #video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-      pointer-events: none;
-    }
+ /* Common video styles */
+#video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+}
 
-    @media (max-width: 480px) {
-      #video-bg {
-        display: none;
-      }
-      body {
-        background: #111;
-      }
-    }
+/* Hidden by default (only shown on mobile) */
+#mobile-bg {
+  display: none;
+  background: url('assets/') no-repeat center center;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+/* Mobile override: hide video, show image */
+@media (max-width: 480px) {
+  #video-bg {
+    display: none;
+  }
+
+  #mobile-bg {
+    display: block;
+  }
+}
+
 
     .topnav {
       display: flex;
@@ -222,11 +238,15 @@
 </head>
 <body>
 
-<!-- Background Video -->
+<!-- Background Video (for desktop) -->
 <video autoplay muted loop playsinline id="video-bg">
   <source src="assets/background.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+
+<!-- Static Image (for mobile) -->
+<div id="mobile-bg"></div>
+
 
 <!-- Navigation Bar -->
 <div class="topnav">
