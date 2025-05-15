@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <title>Report Issues</title>
-     <link rel="icon" href="assets/logo.png" type="image/webp">
+  <link rel="icon" href="assets/logo.png" type="image/webp" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script>
+  <script>
     document.addEventListener("DOMContentLoaded", function () {
       const isMobileMode = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
       document.documentElement.classList.add(isMobileMode ? 'mobile-mode' : 'desktop-mode');
@@ -144,147 +144,142 @@
         padding: 16px;
       }
     }
+
     .download-button {
-  display: inline-block;
-  background-color: #ff9a02;
-  color: white;
-  padding: 12px 24px;
-  margin: 10px 10px 0 0;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 16px;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
+      display: inline-block;
+      background-color: #ff9a02;
+      color: white;
+      padding: 12px 24px;
+      margin: 10px 10px 0 0;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 16px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
 
-.download-button:hover {
-  background-color: #e68900;
-  transform: scale(1.05);
-}
+    .download-button:hover {
+      background-color: #e68900;
+      transform: scale(1.05);
+    }
 
-.button-group {
-  margin-top: 32px;
-  text-align: left;
-  padding-left: 16px;
-}
-form label {
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 6px;
-  display: inline-block;
-}
+    .button-group {
+      margin-top: 32px;
+      text-align: left;
+      padding-left: 16px;
+    }
 
-form input[type="text"],
-form input[type="email"],
-form textarea {
-  width: 100%;
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  font-size: 15px;
-  transition: border-color 0.3s ease;
-  font-family: inherit;
-}
+    form label {
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 6px;
+      display: inline-block;
+    }
 
-form input[type="text"]::placeholder,
-form input[type="email"]::placeholder,
-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
+    form input[type="text"],
+    form input[type="email"],
+    form textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 15px;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+    }
 
-form input[type="text"]:focus,
-form input[type="email"]:focus,
-form textarea:focus {
-  outline: none;
-  border-color: orange;
-  background: rgba(255, 255, 255, 0.15);
-}
+    form input[type="text"]::placeholder,
+    form input[type="email"]::placeholder,
+    form textarea::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
 
-form textarea {
-  resize: vertical;
-  font-family: inherit;
-}
+    form input[type="text"]:focus,
+    form input[type="email"]:focus,
+    form textarea:focus {
+      outline: none;
+      border-color: orange;
+      background: rgba(255, 255, 255, 0.15);
+    }
 
+    form textarea {
+      resize: vertical;
+      font-family: inherit;
+    }
   </style>
 </head>
 <body>
 
 <!-- Background Video -->
 <video autoplay muted loop playsinline id="video-bg">
-  <source src="assets/background.mp4" type="video/mp4">
+  <source src="assets/background.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
 <div class="topnav">
   <div class="nav-left">
-    <a href="index.html"><img src="assets/logo.webp" class="logo" alt="Europa Logo"></a>
+    <a href="index.html"><img src="assets/logo.webp" class="logo" alt="Europa Logo" /></a>
   </div>
   <div class="nav-right">
     <button class="menu-icon" onclick="toggleMenu()">
-      <img src="assets/menu-icon.png" alt="Menu" class="menu-img">
+      <img src="assets/menu-icon.png" alt="Menu" class="menu-img" />
     </button>
     <div id="dropdown-menu" class="dropdown-menu">
       <a href="changelog.html">Changes</a>
       <a href="archive.html">Archive</a>
       <a href="about.html">About</a>
-       <a href="tutorials.html">Tutorials</a>
+      <a href="tutorials.html">Tutorials</a>
       <a href="https://discord.com/channels/771464412460089404/1144173954513240106">Support</a>
     </div>
   </div>
 </div>
 
-
-
 <div class="button-group">
-<div class="content">
-  <h2>Report an issue</h2>
-  <form id="issueForm" style="margin-top: 20px;">
-    <label for="name">Your IN-Game Name</label><br />
-    <input type="text" id="name" name="name" placeholder="Name_Surname" required /><br /><br />
-    
-    <label for="email">Your Email</label><br />
-    <input type="email" id="email" name="email" placeholder="example@gmail.com" required /><br /><br />
-    
-    <label for="issue">Describe your issue</label><br />
-    <textarea id="issue" name="issue" placeholder="Describe your issue" rows="5" required></textarea><br /><br />
-    
-    <button type="submit" class="download-button" style="padding: 12px 40px;">Submit Issue</button>
-  </form>
-</div>
+  <div class="content">
+    <h2>Report an issue</h2>
+    <form id="issueForm" style="margin-top: 20px;">
+      <label for="name">Your IN-Game Name</label><br />
+      <input type="text" id="name" name="name" placeholder="Name_Surname" required /><br /><br />
 
-<script>
-  document.getElementById('issueForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
+      <label for="email">Your Email</label><br />
+      <input type="email" id="email" name="email" placeholder="example@gmail.com" required /><br /><br />
 
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
+      <label for="issue">Describe your issue</label><br />
+      <textarea id="issue" name="issue" placeholder="Describe your issue" rows="5" required></textarea><br /><br />
 
-    try
- fetch('/submit-issue', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(data)
-});
+      <button type="submit" class="download-button" style="padding: 12px 40px;">Submit Issue</button>
+    </form>
+  </div>
 
+  <script>
+    document.getElementById('issueForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
 
-      if (response.ok) {
-        alert('Issue submitted successfully!');
-        this.reset();
-      } else {
-        alert('Failed to submit issue');
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch('/submit-issue', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          alert('Issue submitted successfully!');
+          this.reset();
+        } else {
+          alert('Failed to submit issue');
+        }
+      } catch (err) {
+        alert('Error submitting issue');
       }
-    } catch (err) {
-      alert('Error submitting issue');
-    }
-  });
-</script>
-
-</div>
-
+    });
+  </script>
 </div>
 
 </body>
