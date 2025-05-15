@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Launcher Archive</title>
+     <link rel="icon" href="assets/logo.png" type="image/webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const isMobileMode = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+      document.documentElement.classList.add(isMobileMode ? 'mobile-mode' : 'desktop-mode');
+    });
+
+    function toggleMenu() {
+      const menu = document.getElementById("dropdown-menu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    document.addEventListener("click", function (event) {
+      const menu = document.getElementById("dropdown-menu");
+      const button = document.querySelector(".menu-icon");
+      if (!menu.contains(event.target) && !button.contains(event.target)) {
+        menu.style.display = "none";
+      }
+    });
+  </script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+    }
+
+    #video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    @media (max-width: 480px) {
+      #video-bg { display: none; }
+      body { background: #111; }
+    }
+
+    .topnav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 0 16px;
+    }
+
+    .nav-left, .nav-right {
+      display: flex;
+      gap: 10px;
+    }
+
+    .topnav a {
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .topnav a:hover {
+      background-color: #00000000;
+      color: orange;
+    }
+
+    .topnav a.active {
+      background-color: orange;
+      color: white;
+    }
+
+    .logo {
+      height: 40px;
+    }
+
+    .content {
+      margin: 20px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .menu-icon {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .menu-img {
+      height: 32px;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      right: 16px;
+      top: 60px;
+      background-color: rgba(0, 0, 0, 0.95);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+      flex-direction: column;
+      min-width: 160px;
+    }
+
+    .dropdown-menu a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #222;
+      color: orange;
+    }
+
+    @media (max-width: 768px) {
+      .topnav a {
+        font-size: 14px;
+        padding: 10px 12px;
+      }
+      .logo {
+        height: 30px;
+      }
+      .content {
+        margin: 12px;
+        padding: 16px;
+      }
+    }
+    .download-button {
+  display: inline-block;
+  background-color: #ff9a02;
+  color: white;
+  padding: 12px 24px;
+  margin: 10px 10px 0 0;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 16px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.download-button:hover {
+  background-color: #e68900;
+  transform: scale(1.05);
+}
+
+.button-group {
+  margin-top: 32px;
+  text-align: left;
+  padding-left: 16px;
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Background Video -->
+<video autoplay muted loop playsinline id="video-bg">
+  <source src="assets/background.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<div class="topnav">
+  <div class="nav-left">
+    <a href="index.html"><img src="assets/logo.webp" class="logo" alt="Europa Logo"></a>
+  </div>
+  <div class="nav-right">
+    <button class="menu-icon" onclick="toggleMenu()">
+      <img src="assets/menu-icon.png" alt="Menu" class="menu-img">
+    </button>
+    <div id="dropdown-menu" class="dropdown-menu">
+      <a href="changelog.html">Changes</a>
+      <a href="archive.html">Archive</a>
+      <a href="about.html">About</a>
+       <a href="tutorials.html">Tutorials</a>
+      <a href="https://discord.com/channels/771464412460089404/1144173954513240106">Support</a>
+    </div>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="content">
+  <h2>Old Versions:</h2>
+  <div class="button-group">
+  <a href="https://drive.google.com/file/d/1Cv2XtTLu7Dbgtkd4pr2lWJtRFzecHhvr/view?usp=drivesdk" class="download-button">Europa Mobile 1.0</a>
+  <br>
+  <a href="https://drive.google.com/uc?export=download&id=1jA7XpTgqrra9B-69NJgp-9WML12ERXJf" class="download-button">Europa Mobile 1.1 (Full + non CLEO)</a>
+<br>
+ <a href="https://drive.google.com/file/d/1jA7XpTgqrra9B-69NJgp-9WML12ERXJf/view?usp=drive_link" class="download-button">Europa Mobile 1.2 (Full + non CLEO)</a>
+</div>
+
+</div>
+
+</body>
+</html>
