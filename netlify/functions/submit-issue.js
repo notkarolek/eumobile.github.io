@@ -1,4 +1,3 @@
-// netlify/functions/submit-issue.js
 const nodemailer = require('nodemailer');
 
 exports.handler = async function(event, context) {
@@ -9,7 +8,17 @@ exports.handler = async function(event, context) {
     };
   }
 
-  const { name, email, issue } = JSON.parse(event.body);
+  let data;
+  try {
+    data = JSON.parse(event.body);
+  } catch {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: 'Invalid JSON' }),
+    };
+  }
+
+  const { name, email, issue } = data;
 
   if (!name || !email || !issue) {
     return {
@@ -21,8 +30,8 @@ exports.handler = async function(event, context) {
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'n0xsampmobile@gmail.com', // your email
-      pass: 'fvpeecakzikgpcf',         // your app password
+      user: 'n0xsampmobile@gmail.com', // your gmail address
+      pass: 'fvpeecakzikgpcf',          // your app password
     },
   });
 
@@ -47,3 +56,33 @@ exports.handler = async function(event, context) {
     };
   }
 };
+Step 3: Frontend form snippet (you already have this)
+Make sure your fetch call matches this:
+
+js
+Kopiuj
+Edytuj
+document.getElementById('issueForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+
+  try {
+    const response = await fetch('/.netlify/functions/submit-issue', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      alert('Issue submitted successfully!');
+      this.reset();
+    } else {
+      const errorData = await response.json();
+      alert(`Failed to submit issue: ${errorData.message || 'Unknown error'}`);
+    }
+  } catch (err) {
+    alert('Error submitting issue');
+  }
+});
