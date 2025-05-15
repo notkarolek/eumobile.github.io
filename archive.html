@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <title>Europa Archive</title>
-  <link rel="icon" href="assets/logo.webp" type="image/webp">
+     <link rel="icon" href="assets/logo.png" type="image/webp">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <script>
+    <script>
     document.addEventListener("DOMContentLoaded", function () {
       const isMobileMode = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
       document.documentElement.classList.add(isMobileMode ? 'mobile-mode' : 'desktop-mode');
@@ -24,6 +24,7 @@
       }
     });
   </script>
+
   <style>
     html, body {
       margin: 0;
@@ -45,12 +46,8 @@
     }
 
     @media (max-width: 480px) {
-      #video-bg {
-        display: none;
-      }
-      body {
-        background: #111;
-      }
+      #video-bg { display: none; }
+      body { background: #111; }
     }
 
     .topnav {
@@ -75,12 +72,36 @@
     }
 
     .topnav a:hover {
-      background-color: transparent;
+      background-color: #00000000;
       color: orange;
+    }
+
+    .topnav a.active {
+      background-color: orange;
+      color: white;
     }
 
     .logo {
       height: 40px;
+    }
+
+    .content {
+      margin: 20px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .menu-icon {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .menu-img {
+      height: 32px;
     }
 
     .dropdown-menu {
@@ -109,35 +130,6 @@
       color: orange;
     }
 
-    .content {
-      margin: 20px;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(8px);
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-
-    .download-button {
-      display: inline-block;
-      background-color: #ff9a02;
-      color: white;
-      padding: 12px 24px;
-      margin: 10px 10px 0 0;
-      font-size: 16px;
-      font-weight: bold;
-      border: none;
-      border-radius: 16px;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .download-button:hover {
-      background-color: #e68900;
-      transform: scale(1.05);
-    }
-
     @media (max-width: 768px) {
       .topnav a {
         font-size: 14px;
@@ -151,26 +143,40 @@
         padding: 16px;
       }
     }
-  </style>
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById("dropdown-menu");
-      menu.style.display = menu.style.display === "block" ? "none" : "block";
-    }
+    .download-button {
+  display: inline-block;
+  background-color: #ff9a02;
+  color: white;
+  padding: 12px 24px;
+  margin: 10px 10px 0 0;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 16px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-    document.addEventListener("click", function (event) {
-      const menu = document.getElementById("dropdown-menu");
-      const button = document.querySelector(".menu-icon");
-      if (!menu.contains(event.target) && !button.contains(event.target)) {
-        menu.style.display = "none";
-      }
-    });
-  </script>
+.download-button:hover {
+  background-color: #e68900;
+  transform: scale(1.05);
+}
+
+.button-group {
+  margin-top: 32px;
+  text-align: left;
+  padding-left: 16px;
+}
+
+  </style>
 </head>
 <body>
 
+<!-- Background Video -->
 <video autoplay muted loop playsinline id="video-bg">
   <source src="assets/background.mp4" type="video/mp4">
+  Your browser does not support the video tag.
 </video>
 
 <div class="topnav">
@@ -189,12 +195,17 @@
   </div>
 </div>
 
+<!-- Page Content -->
 <div class="content">
-  <h2>Europa Archive</h2>
-  <b>These are older versions of the Europa launcher. Not recommended for use.</b>
-  <a href="#" class="download-button">Europa v1.0</a>
-  <a href="#" class="download-button">Europa v1.1</a>
-  <a href="#" class="download-button">Europa v1.2</a>
+  <h2>Old Versions:</h2>
+  <div class="button-group">
+  <a href="https://drive.google.com/file/d/1Cv2XtTLu7Dbgtkd4pr2lWJtRFzecHhvr/view?usp=drivesdk" class="download-button">Europa Mobile 1.0</a>
+  <br>
+  <a href="https://drive.google.com/uc?export=download&id=1jA7XpTgqrra9B-69NJgp-9WML12ERXJf" class="download-button">Europa Mobile 1.1 (Full + non CLEO)</a>
+<br>
+ <a href="https://drive.google.com/file/d/1jA7XpTgqrra9B-69NJgp-9WML12ERXJf/view?usp=drive_link" class="download-button">Europa Mobile 1.2 (Full + non CLEO)</a>
+</div>
+
 </div>
 
 </body>

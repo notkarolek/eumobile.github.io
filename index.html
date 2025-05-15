@@ -175,6 +175,23 @@
       text-align: left;
       padding-left: 0px;
     }
+ .menu-icon {
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menu-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+
+.menu-icon:hover {
+  color: orange;
+}
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -201,7 +218,6 @@
   color: orange;
 }
 
-
   </style>
 </head>
 <body>
@@ -222,7 +238,8 @@
 
   <div class="nav-right">
   <button class="menu-icon" onclick="toggleMenu()">
-  <img src="assets/menu-icon.png" alt="Menu" class="menu-img"></button>
+  <img src="assets/menu-icon.png" alt="Menu" class="menu-img">
+</button>
 
 
 
@@ -237,8 +254,8 @@
 <!-- Page Content -->
 <div class="content-flex">
   <div class="text-section">
-    <h2>Welcome to Europa Mobile</h2>
-    <b>Currurent version: v1.3L</b>
+    <h2>Welcome to Europa Mobile Launcher</h2>
+    <b>Current version: v1.3L</b>
     <div class="button-group">
       <a href="blank" class="download-button">Download Launcher (APK)</a>
       <br>
