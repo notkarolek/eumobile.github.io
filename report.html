@@ -263,12 +263,13 @@ form textarea {
     const formData = new FormData(this);
     const data = Object.fromEntries(formData.entries());
 
-    try {
-     const response = await fetch('/.netlify/functions/submit-issue', {
+    try
+ fetch('/submit-issue', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify(data)
 });
+
 
       if (response.ok) {
         alert('Issue submitted successfully!');
