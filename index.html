@@ -176,14 +176,16 @@
       padding-left: 0px;
     }
  .menu-icon {
-  font-size: 28px;
   background: none;
   border: none;
-  font-family: Arial, sans-serif;
-  color: white;
+  padding: 10px;
   cursor: pointer;
-  padding: 14px 16px;
-  display: inline-block; /* Ensures it renders */
+}
+
+.menu-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
 
@@ -235,7 +237,10 @@
   </div>
 
   <div class="nav-right">
-  <button class="menu-icon" onclick="toggleMenu()">☰</button>
+  <button class="menu-icon" onclick="toggleMenu()">
+  <img src="assets/menu-icon.png" alt="Menu" class="menu-img">
+</button>
+
 
 
     <div id="dropdown-menu" class="dropdown-menu">
